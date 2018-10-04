@@ -91,6 +91,13 @@ spec:
           - name: GOOGLE_APPLICATION_CREDENTIALS
             value: /etc/secrets/service-account/credentials.json
         {{- end }}
+        {{- if and .Values.linode.apiToken }}
+          - name: LINODE_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "external-dns.fullname" . }}
+                key: linode_api_token
+        {{- end }}
         {{- if eq .Values.provider "aws" }}
         {{- if .Values.aws.region }}
           - name: AWS_DEFAULT_REGION

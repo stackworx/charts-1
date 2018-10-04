@@ -39,6 +39,9 @@ google:
   project: ""
   serviceAccountSecret: ""
 
+linode:
+  apiToken: ""
+
 ## Limit possible target zones by domain suffixes (optional)
 domainFilters: []
 ## Limit possible target zones by zone id (optional)
